@@ -16,7 +16,7 @@ exports.book_create_get = function (req, res) {
     res.send('NOT IMPLEMENTED: Book create GET');
 };
 
-exports.book_create_pos = function (req, res) {
+exports.book_create_post = function (req, res) {
     res.send('NOT IMPLEMENTED: Book create POST');
 };
 
