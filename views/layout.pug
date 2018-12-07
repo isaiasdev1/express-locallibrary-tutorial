@@ -8,6 +8,7 @@ html(lang='en')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='icon', href='/images/logo.png')
   body(class='container-fluid')
     div(class='container')
       div(class='row')
@@ -34,13 +35,13 @@ html(lang='en')
                 a(href='/catalog/book/create') Create new book
               li 
                 a(href='/catalog/bookinstance/create') Create new book instance
-              if !((title.indexOf('Create') >= 0) || (title.indexOf('Update')  >= 0))
+              if !(title.includes('Create') || title.includes('Update'))
                 li
                   hr
                 li
                   form(method='POST' action='')
                     div.form-group
                       label(for='search') Search:
-                      input#search.form-control(type="search" placeholder="Search")
+                      input#search.form-control(type="text" placeholder="Search")
         div(class='col-sm-10')
           block content
