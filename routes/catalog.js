@@ -7,6 +7,7 @@ var book_controller = require('../controllers/bookController');
 var author_controller = require('../controllers/authorController');
 var genre_controller = require('../controllers/genreController');
 var book_instance_controller = require('../controllers/bookinstanceController');
+var search_controller = require('../controllers/searchController');
 
 
 /// BOOK ROUTES ///
@@ -117,6 +118,9 @@ router.get('/bookinstance/:id', book_instance_controller.bookinstance_detail);
 
 // GET request for list of all BookInstance.
 router.get('/bookinstances', book_instance_controller.bookinstance_list);
+
+// POST Search 
+// router.post('/search/:params', search_controller);
 
 
 module.exports = router;
