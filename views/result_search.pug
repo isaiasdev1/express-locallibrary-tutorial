@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    h1= title
+
+    h2 Books:
+    ul
+    each book in books
+        li
+            a(href=book.url) #{book.title}
+            | (#{book.author.name})
+    |
+    |
+    h2 Authors:
+    ul
+    each author in authors
+        li 
+            a(href=author.url) #{author.name} 
+            | (#{author.lifespan})
+    |
+    |
+    h2 Genres:
+    ul
+    each genre in genres
+        li 
+            a(href=val.url) #{val.name}
