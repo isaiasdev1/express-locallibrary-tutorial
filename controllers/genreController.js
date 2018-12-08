@@ -48,7 +48,7 @@ exports.genre_detail = function(req, res, next) {
 
 // Display Genre create form on GET.
 exports.genre_create_get = function(req, res, next) {
-    res.render('genre_form', { title: 'Create Genre'});
+    res.render('genre_form', { title: 'Create Genre', form: true });
 };
 
 // Handle Genre create on POST.
@@ -166,7 +166,7 @@ exports.genre_update_get = function(req, res, next) {
             return next(err);
         }
         // Success.
-        res.render('genre_form', { title: 'Update Genre', genre: genre });
+        res.render('genre_form', { title: 'Update Genre', genre: genre, form:true });
     });
 
 };

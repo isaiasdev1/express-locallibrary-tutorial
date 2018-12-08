@@ -37,6 +37,7 @@ exports.book_list = function (req, res, next) {
 
     Book.find({}, 'title author ')
         .populate('author')
+        .sort('title')
         .exec(function (err, list_books) {
             if (err) { return next(err); }
             // Successful, so render
@@ -87,7 +88,7 @@ exports.book_create_get = function (req, res, next) {
         },
     }, function (err, results) {
         if (err) { return next(err); }
-        res.render('book_form', { title: 'Create Book', authors: results.authors, genres: results.genres });
+        res.render('book_form', { title: 'Create Book', authors: results.authors, genres: results.genres, form: true });
     });
 
 };
@@ -252,7 +253,7 @@ exports.book_update_get = function (req, res, next) {
                 }
             }
         }
-        res.render('book_form', { title: 'Update Book', authors: results.authors, genres: results.genres, book: results.book });
+        res.render('book_form', { title: 'Update Book', authors: results.authors, genres: results.genres, book: results.book, form: true });
     });
 
 };

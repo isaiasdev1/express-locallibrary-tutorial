@@ -120,7 +120,7 @@ router.get('/bookinstance/:id', book_instance_controller.bookinstance_detail);
 router.get('/bookinstances', book_instance_controller.bookinstance_list);
 
 // POST Search 
-// router.post('/search/:params', search_controller);
+router.post('/search/:params', search_controller.search_result);
 
 
 module.exports = router;

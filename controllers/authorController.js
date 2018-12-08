@@ -45,7 +45,7 @@ exports.author_detail = function (req, res, next) {
 
 // Display Author create form on GET.
 exports.author_create_get = function (req, res, next) {
-    res.render('author_form', { title: 'Create Author' });
+    res.render('author_form', { title: 'Create Author', form: true });
 };
 
 // Handle Author create on POST.
@@ -161,7 +161,7 @@ exports.author_update_get = function (req, res, next) {
             return next(err);
         }
         // Success.
-        res.render('author_form', { title: 'Update Author', author: author });
+        res.render('author_form', { title: 'Update Author', author: author, form: true });
 
     });
 };
