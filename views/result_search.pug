@@ -9,18 +9,20 @@ block content
         li
             a(href=book.url) #{book.title}
             | (#{book.author.name})
-    |
-    |
+    else
+        li Not found Books.
     h2 Authors:
     ul
     each author in authors
         li 
             a(href=author.url) #{author.name} 
             | (#{author.lifespan})
-    |
-    |
+    else
+        li Not found Authors.
     h2 Genres:
     ul
-    each genre in genres
+    each val in genres
         li 
             a(href=val.url) #{val.name}
+    else
+        li Not found Genres.

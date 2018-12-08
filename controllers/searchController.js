@@ -2,10 +2,14 @@ var Book = require('../models/book');
 var Author = require('../models/author');
 var Genre = require('../models/genre');
 
+const { body, validationResult } = require('express-validator/check');
+
 var async = require('async');
 
 exports.search_result = function (req, res, next) {
-    var busca = req.query.search;
+    body('search', 'Pesquisa não digitada!').isLength({ min: 1 }).trim()
+    var busca = req.body.search;
+    // process.stdout.write(String(busca) + '\n');
     async.parallel({
         book: function (callback) {
             Book.find({
@@ -25,16 +29,8 @@ exports.search_result = function (req, res, next) {
         },
     }, function (err, results) {
         if (err) { return next(err); }
-        if (results.book == null) { // No results.
-            results.book = 'Nenhum livro encontrado!';
-        }
-        if (results.author == null) { // No results.
-            results.author = 'Nenhum autor encontrado!';
-        }
-        if (results.genre == null) { // No results.
-            results.genre = 'Nenhum gênero encontrado!';
-        }
         // Successful, so render.
+        process.stdout.write(String(results.author) + '\n');
         res.render('result_search', { title: 'Result Search', books: results.book, authors: results.author, genres: results.genre });
     });
 };
