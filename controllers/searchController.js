@@ -3,14 +3,13 @@ var Book = require('../models/book');
 var Author = require('../models/author');
 var Genre = require('../models/genre');
 
-const { body, validationResult } = require('express-validator/check');
+const { body } = require('express-validator/check');
 
 var async = require('async');
 
 exports.search_result = function (req, res, next) {
     body('search', 'Pesquisa não digitada!').isLength({ min: 1 }).trim()
     var busca = req.body.search;
-    // process.stdout.write(String(busca) + '\n');
     async.parallel({
         book: function (callback) {
             Book.find({

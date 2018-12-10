@@ -31,7 +31,7 @@ exports.bookinstance_detail = function(req, res, next) {
           return next(err);
         }
       // Successful, so render.
-      res.render('bookinstance_detail', { title: 'Book:', bookinstance:  bookinstance});
+        res.render('bookinstance_detail', { title: 'Book Instance Detail', bookinstance:  bookinstance});
     })
 
 };
@@ -43,7 +43,7 @@ exports.bookinstance_create_get = function(req, res, next) {
     .exec(function (err, books) {
       if (err) { return next(err); }
       // Successful, so render.
-        res.render('bookinstance_form', { title: 'Create BookInstance', book_list: books, form: true } );
+        res.render('bookinstance_form', { title: 'Create Book Instance', book_list: books, form: true } );
     });
 
 };
@@ -82,7 +82,7 @@ exports.bookinstance_create_post = [
                 .exec(function (err, books) {
                     if (err) { return next(err); }
                     // Successful, so render.
-                    res.render('bookinstance_form', { title: 'Create BookInstance', book_list : books, selected_book : bookinstance.book._id , errors: errors.array(), bookinstance:bookinstance });
+                    res.render('bookinstance_form', { title: 'Create Book Instance', book_list : books, selected_book : bookinstance.book._id , errors: errors.array(), bookinstance:bookinstance });
             });
             return;
         }
@@ -110,7 +110,7 @@ exports.bookinstance_delete_get = function(req, res, next) {
             res.redirect('/catalog/bookinstances');
         }
         // Successful, so render.
-        res.render('bookinstance_delete', { title: 'Delete BookInstance', bookinstance:  bookinstance});
+        res.render('bookinstance_delete', { title: 'Delete Book Instance', bookinstance:  bookinstance});
     })
 
 };
@@ -147,7 +147,7 @@ exports.bookinstance_update_get = function(req, res, next) {
                 return next(err);
             }
             // Success.
-            res.render('bookinstance_form', { title: 'Update  BookInstance', book_list: results.books, selected_book: results.bookinstance.book._id, bookinstance: results.bookinstance, form: true });
+            res.render('bookinstance_form', { title: 'Update  Book Instance', book_list: results.books, selected_book: results.bookinstance.book._id, bookinstance: results.bookinstance, form: true });
         });
 
 };
@@ -187,7 +187,7 @@ exports.bookinstance_update_post = [
                 .exec(function (err, books) {
                     if (err) { return next(err); }
                     // Successful, so render.
-                    res.render('bookinstance_form', { title: 'Update BookInstance', book_list : books, selected_book : bookinstance.book._id , errors: errors.array(), bookinstance:bookinstance });
+                    res.render('bookinstance_form', { title: 'Update Book Instance', book_list : books, selected_book : bookinstance.book._id , errors: errors.array(), bookinstance:bookinstance });
             });
             return;
         }
